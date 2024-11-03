@@ -32,11 +32,12 @@ sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/do
 ### Run Solr in Docker using Docker Compose
 
 #### Create a docker-compose.yml file.
+
 ```yml
 version: "3"
 services:
   solr:
-    image: solr
+    image: solr:8.11.4
     ports:
       - "8983:8983"
     volumes:
@@ -50,7 +51,7 @@ volumes:
 #### Use Docker Compose to run a Solr Server.
 
 ```bash
-docker compose up -d
+sudo docker compose up -d
 ```
 
 ### Docker Volumes
@@ -86,6 +87,7 @@ sudo docker container ls -a
 ```bash
 sudo docker container rm -f $(sudo docker container ls -qa); sudo docker image rm -f $(sudo docker image ls -qa); sudo docker volume rm -f $(sudo docker volume ls)
 ```
-## Sources
+
+## References
 - `https://solr.apache.org/guide/solr/latest/deployment-guide/solr-in-docker.html`
 - `https://docs.docker.com/engine/install/fedora/`
